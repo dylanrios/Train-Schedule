@@ -1,0 +1,20 @@
+.col-sm-3 {
+    background-color: maroon;
+    color: gold;
+    border: solid 1px black;
+    border-radius: 3px;
+}
+
+.col-sm-2 {
+    background-color: maroon;
+    color: gold;
+    border: solid 1px black;
+    border-radius: 3px;
+
+}
+
+#container1 {
+    margin-left:100px;
+    margin-right:100px;
+    margin-bottom: 50px;
+}
