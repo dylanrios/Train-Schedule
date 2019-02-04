@@ -24,12 +24,7 @@ $('#submitButton').on('click', function() {
     var input3 = $('#firstTrainTimeInput').val().trim();
     var input4 = $('#frequencyInput').val().trim();
     
-
     
-
-
-    
-
     
 
 
@@ -54,37 +49,6 @@ $('#submitButton').on('click', function() {
 
 
 
-   
-
-    
-
-
-    
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
 });//end of on 'click' submit button
     
 database.ref().on('child_added', function(childSnapshot) {
@@ -93,13 +57,16 @@ var trainNameDisplay = childSnapshot.val().trainName;
 var destinationDisplay = childSnapshot.val().destination;
 var firstTrainTimeDisplay = childSnapshot.val().firstTrainTime;
 var frequencyDisplay = childSnapshot.val().frequency;
+
+
+
   
   console.log(frequencyDisplay);
 
 
 var newDivTrainName = $('<div>');
 var newDivDestination = $('<div>');
-var newDivFirstTrainTime = $('<div>');
+var newDivFirstTrainTime = $('<div class="newDivFirstTrainTime">');
 var newDivFrequency = $('<div>');
 
 
@@ -125,20 +92,21 @@ var difference =  moment().diff(firstTrainTimeConvert, 'minutes');
 console.log(difference + ' difference');
  
 
-var diffConvert = difference % frequencyDisplay;
+var diffConvert = (difference % frequencyDisplay) * -1;
 
 console.log(diffConvert + ' diffConvert');
 
-var minutesAway = frequencyDisplay - diffConvert;
+var minutesAway = diffConvert;
 
 
+//was previously frequencyDisplay - diffConvert
 
+console.log(minutesAway + ' minutes away')
 
-// console.log(minutesAway + ' minutes until next train!');
+// var nextTrain = moment().add(minutesAway, 'minutes');
+// var nextTrainFormat = moment(nextTrain).format('hh:mm');
 
-// console.log('difference in time: ' + difference + ' minutes');
-
-
+// console.log(nextTrainFormat + ' nextTrainFormat');
 
 
 $('#trainName').append(newDivTrainName);
@@ -151,9 +119,11 @@ $('#nextArrival').append(newDivFirstTrainTime);
 
 if (minutesAway === 0) {
     
-    minutesAway == frequencyDisplay - diffConvert;
-    
-    
+    minutesAway == diffConvert;
+    // newDivFirstTrainTime == nextTrainFormat;
+    // $('.newDivFirstTrainTime').hide();
+
+   
     
 }
 
