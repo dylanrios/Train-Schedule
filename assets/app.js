@@ -61,7 +61,7 @@ var frequencyDisplay = childSnapshot.val().frequency;
 
 
   
-  console.log(frequencyDisplay);
+console.log(frequencyDisplay);
 
 
 var newDivTrainName = $('<div>');
@@ -92,39 +92,54 @@ var difference =  moment().diff(firstTrainTimeConvert, 'minutes');
 console.log(difference + ' difference');
  
 
-var diffConvert = (difference % frequencyDisplay) * -1;
+var diffConvert = difference % frequencyDisplay;
+
 
 console.log(diffConvert + ' diffConvert');
 
-var minutesAway = diffConvert;
+var minutesAway = frequencyDisplay - diffConvert ;
 
 
 //was previously frequencyDisplay - diffConvert
 
 console.log(minutesAway + ' minutes away')
 
-// var nextTrain = moment().add(minutesAway, 'minutes');
-// var nextTrainFormat = moment(nextTrain).format('hh:mm');
+var newDivMinutesAway = $('<div class="minutesAwayDiv">');
 
-// console.log(nextTrainFormat + ' nextTrainFormat');
-
+$(newDivMinutesAway).append(minutesAway + ' minutes away');
 
 $('#trainName').append(newDivTrainName);
 $('#destination').append(newDivDestination);
 $('#frequency').append(newDivFrequency);
-$('#minutesAway').append(minutesAway + ' minute(s) <br>');
+$('#minutesAway').append(newDivMinutesAway);
 $('#nextArrival').append(newDivFirstTrainTime);
 
 
 
-if (minutesAway === 0) {
-    
-    minutesAway == diffConvert;
-    // newDivFirstTrainTime == nextTrainFormat;
-    // $('.newDivFirstTrainTime').hide();
+var nextTrain = moment().add(minutesAway, 'minutes');
+var nextTrainFormat = moment(nextTrain).format('hh:mm');
 
-   
-    
+console.log(nextTrainFormat + ' nextTrainFormat');
+
+
+
+if (minutesAway === 0) {
+
+    // parseInt(minutesAway);
+    // parseInt(frequencyDisplay);
+    // // var newDivMinutesAway = $('<div>');
+    minutesAway += frequencyDisplay;
+
+    // $('.minutesAwayDiv').hide();
+    // $(newDivMinutesAway).append(minutesAway + 'minutes away');
+    // console.log(newDivMinutesAway + 'new div minutes away');
+    // $('#minutesAway').append(newDivMinutesAway);
+
+
+
+
+
+
 }
 
 
