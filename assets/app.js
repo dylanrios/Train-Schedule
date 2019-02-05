@@ -100,7 +100,7 @@ console.log(diffConvert + ' diffConvert');
 var minutesAway = frequencyDisplay - diffConvert ;
 
 
-//was previously frequencyDisplay - diffConvert
+
 
 console.log(minutesAway + ' minutes away')
 
@@ -121,26 +121,33 @@ var nextTrainFormat = moment(nextTrain).format('hh:mm');
 
 console.log(nextTrainFormat + ' nextTrainFormat');
 
-
-
-if (minutesAway === 0) {
-
-    // parseInt(minutesAway);
-    // parseInt(frequencyDisplay);
-    // // var newDivMinutesAway = $('<div>');
-    minutesAway += frequencyDisplay;
-
-    // $('.minutesAwayDiv').hide();
-    // $(newDivMinutesAway).append(minutesAway + 'minutes away');
-    // console.log(newDivMinutesAway + 'new div minutes away');
-    // $('#minutesAway').append(newDivMinutesAway);
+console.log(typeof nextTrainFormat);
+console.log(typeof minutesAway);
 
 
 
 
+// moment(Date.now() + 30000).format('MMMM Do YYYY, h:mm:ss a');
+// "February 4th 2019, 6:23:58 pm"
 
 
-}
+
+// if (minutesAway === 0) {
+//   var nextTrain = moment().add(minutesAway, 'minutes');
+//   var nextTrainFormat = moment(nextTrain).format('hh:mm');
+  
+//   console.log(nextTrainFormat + ' nextTrainFormat');
+//     $(newDivFirstTrainTime).text(nextTrainFormat);
+//     console.log(typeof nextTrainFormat);
+//     // var newDivNextTrainTime = $('<div id="newDivNextTrainTime">');
+//     minutesAway += frequencyDisplay;
+//     // $(newDivNextTrainTime).append(nextTrainFormat);
+//     // $('#nextArrival').append(newDivNextTrainTime);
+
+
+
+    
+// }
 
 
 
